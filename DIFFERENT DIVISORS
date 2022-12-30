@@ -1,0 +1,63 @@
+// PRIME NUMBER LOGIC REQUIRED
+******************************************
+#include<bits/stdc++.h>
+using namespace std;
+#define ll long long
+#define op() ios_base::sync_with_stdio(0);cin.tie(0);cout.tie(0);
+int main()
+{
+	op();
+	ll t;
+	cin>>t;
+	while (t--)
+	{
+		ll n;
+		cin>>n;
+		vector<ll>v;
+		for(ll i=n+1; ;i++)
+		{
+			bool find =true;
+			for(ll j=2; j*j<=i; j++)
+			{
+				if(i%j==0)
+				{
+					find = false;
+					break;
+				}
+
+			}
+			if(find==1)
+			{
+				v.push_back(i);
+				break;
+			}
+		}
+		//cout<<endl;
+		//cout<<v.back()<<endl;
+		for(ll i=v.back()+n; ;i++)
+		{
+			bool find =true;
+			
+				for(ll j=2; j*j<=i; j++)
+				{
+					
+					if(i%j==0)
+					{
+						find=false;
+						break;
+					}
+					
+				}
+
+			if(find==1)
+			{
+				v.push_back(i);
+				//cout<<i<<endl;
+				break;
+			}
+		}
+		//cout<<v.size()<<endl;
+		cout<<min(v[0]*v[1],v[0]*v[0]*v[0])<<endl;
+
+	}
+}
